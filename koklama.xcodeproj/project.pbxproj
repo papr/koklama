@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		766345B41A02654A00395979 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 766345B31A02654A00395979 /* main.c */; };
+		766345BB1A0274B000395979 /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 766345BA1A0274B000395979 /* libpcap.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		766345B01A02654A00395979 /* koklama */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = koklama; sourceTree = BUILT_PRODUCTS_DIR; };
 		766345B31A02654A00395979 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		766345BA1A0274B000395979 /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766345BB1A0274B000395979 /* libpcap.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +44,7 @@
 		766345A71A02654A00395979 = {
 			isa = PBXGroup;
 			children = (
+				766345BA1A0274B000395979 /* libpcap.dylib */,
 				766345B21A02654A00395979 /* koklama */,
 				766345B11A02654A00395979 /* Products */,
 			);
@@ -232,6 +236,7 @@
 				766345B91A02654A00395979 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
