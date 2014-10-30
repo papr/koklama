@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		617242131A0283C3009B9BE8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 617242121A0283C3009B9BE8 /* README.md */; };
 		766345B41A02654A00395979 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 766345B31A02654A00395979 /* main.c */; };
 		766345BB1A0274B000395979 /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 766345BA1A0274B000395979 /* libpcap.dylib */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		617242111A0283C3009B9BE8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		617242121A0283C3009B9BE8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		766345B01A02654A00395979 /* koklama */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = koklama; sourceTree = BUILT_PRODUCTS_DIR; };
 		766345B31A02654A00395979 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		766345BA1A0274B000395979 /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
@@ -41,12 +44,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		617242141A028913009B9BE8 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				617242111A0283C3009B9BE8 /* LICENSE */,
+				617242121A0283C3009B9BE8 /* README.md */,
+			);
+			name = Documents;
+			path = koklama;
+			sourceTree = "<group>";
+		};
 		766345A71A02654A00395979 = {
 			isa = PBXGroup;
 			children = (
 				766345BA1A0274B000395979 /* libpcap.dylib */,
 				766345B21A02654A00395979 /* koklama */,
 				766345B11A02654A00395979 /* Products */,
+				617242141A028913009B9BE8 /* Documents */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617242131A0283C3009B9BE8 /* README.md in Sources */,
 				766345B41A02654A00395979 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
