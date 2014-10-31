@@ -71,9 +71,11 @@ int main(int argc, char *argv[])
     }
 
     struct bpf_program fp;          /* The compiled filter expression */
-    char filter_exp[] = "port 23";	/* The filter expression */
+    char filter_exp[] = "port 80";     /* The filter expression */
     bpf_u_int32 mask;               /* The netmask of our sniffing device */
     bpf_u_int32 net;                /* The IP of our sniffing device */
+    struct pcap_pkthdr header;      /* The header that pcap gives us */
+    const u_char *packet;           /* The actual packet */
 
     if (pcap_lookupnet(sniffdev->name, &net, &mask, errbuf) == -1) {
         fprintf(stderr, "Can't get netmask for device %s\n", sniffdev->name);
@@ -105,6 +107,12 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Couldn't install filter %s: %s\n", filter_exp, pcap_geterr(handle));
         return(2);
     }
+
+    packet = pcap_next(handle, &header);
+    /* Print its length */
+    printf("Jacked a packet with length of [%d]\n", header.len);
+
+    pcap_close(handle);
 
 	return(0);
 }
