@@ -14,5 +14,6 @@
 #include <pcap.h>
 
 char *chooseKoklamaDevice(char **errbuf);
+pcap_t *openDeviceAndApplyFilter(char *dev, char *filter,char **errbuf);
 
 #endif /* defined(__koklama__utils__) */
