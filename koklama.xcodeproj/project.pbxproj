@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		617242131A0283C3009B9BE8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 617242121A0283C3009B9BE8 /* README.md */; };
+		619CAA5D1A06C48600EB852B /* capture.c in Sources */ = {isa = PBXBuildFile; fileRef = 619CAA5B1A06C48600EB852B /* capture.c */; };
 		61B969A31A067A6D00B6B73E /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 61B969A11A067A6D00B6B73E /* utils.c */; };
 		766345B41A02654A00395979 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 766345B31A02654A00395979 /* main.c */; };
 		766345BB1A0274B000395979 /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 766345BA1A0274B000395979 /* libpcap.dylib */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		617242111A0283C3009B9BE8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		617242121A0283C3009B9BE8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		619CAA5B1A06C48600EB852B /* capture.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = capture.c; sourceTree = "<group>"; };
+		619CAA5C1A06C48600EB852B /* capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = capture.h; sourceTree = "<group>"; };
 		61B969A11A067A6D00B6B73E /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
 		61B969A21A067A6D00B6B73E /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		766345B01A02654A00395979 /* koklama */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = koklama; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,8 @@
 				766345B31A02654A00395979 /* main.c */,
 				61B969A11A067A6D00B6B73E /* utils.c */,
 				61B969A21A067A6D00B6B73E /* utils.h */,
+				619CAA5B1A06C48600EB852B /* capture.c */,
+				619CAA5C1A06C48600EB852B /* capture.h */,
 			);
 			path = koklama;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			files = (
 				61B969A31A067A6D00B6B73E /* utils.c in Sources */,
 				617242131A0283C3009B9BE8 /* README.md in Sources */,
+				619CAA5D1A06C48600EB852B /* capture.c in Sources */,
 				766345B41A02654A00395979 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
