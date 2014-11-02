@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		617242131A0283C3009B9BE8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 617242121A0283C3009B9BE8 /* README.md */; };
+		61B969A31A067A6D00B6B73E /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 61B969A11A067A6D00B6B73E /* utils.c */; };
 		766345B41A02654A00395979 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 766345B31A02654A00395979 /* main.c */; };
 		766345BB1A0274B000395979 /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 766345BA1A0274B000395979 /* libpcap.dylib */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,8 @@
 /* Begin PBXFileReference section */
 		617242111A0283C3009B9BE8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		617242121A0283C3009B9BE8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		61B969A11A067A6D00B6B73E /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		61B969A21A067A6D00B6B73E /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		766345B01A02654A00395979 /* koklama */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = koklama; sourceTree = BUILT_PRODUCTS_DIR; };
 		766345B31A02654A00395979 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		766345BA1A0274B000395979 /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
@@ -76,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				766345B31A02654A00395979 /* main.c */,
+				61B969A11A067A6D00B6B73E /* utils.c */,
+				61B969A21A067A6D00B6B73E /* utils.h */,
 			);
 			path = koklama;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B969A31A067A6D00B6B73E /* utils.c in Sources */,
 				617242131A0283C3009B9BE8 /* README.md in Sources */,
 				766345B41A02654A00395979 /* main.c in Sources */,
 			);
