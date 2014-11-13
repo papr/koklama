@@ -10,5 +10,8 @@
 #define __koklama__capture__
 
 #include <stdio.h>
+#include <pcap.h>
+
+void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *pkt);
 
 #endif /* defined(__koklama__capture__) */

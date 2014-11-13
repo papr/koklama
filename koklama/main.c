@@ -12,28 +12,37 @@
 #include <pcap.h>
 
 #include "utils.h"
+#include "capture.h"
 
 int main(int argc, char *argv[])
 {
 
         char *errbuf = NULL;
+        pcap_t *handle = NULL;
+
         char *dev = chooseKoklamaDevice(&errbuf);
 
         if (dev == NULL) {
                 printf("%s\n",errbuf);
-                free(errbuf);
                 return(2);
         }
 
-        pcap_t *handle = openDeviceAndApplyFilter(dev, "port 80", &errbuf);
+        handle = openLiveDeviceAndApplyFilter(dev, true, "", &errbuf);
+
+        if (dev != NULL) free(dev);
 
         if (handle == NULL) {
                 printf("%s\n",errbuf);
                 return(2);
         }
 
+
+        pcap_loop(handle, -1, capture_loop_cb, (u_char *)handle);
+
+        // turn off monitor modeif it was turned on before
+        // if (suc == 1) { pcap_set_rfmon(handle, false); }
+
         pcap_close(handle);
-        free(errbuf);
-        
+
         return(0);
 }
