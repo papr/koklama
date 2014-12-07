@@ -27,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		610735DD1A349F9200F1913D /* definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = definitions.h; sourceTree = "<group>"; };
 		617242111A0283C3009B9BE8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		617242121A0283C3009B9BE8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		619CAA5B1A06C48600EB852B /* capture.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = capture.c; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 				61B969A21A067A6D00B6B73E /* utils.h */,
 				619CAA5B1A06C48600EB852B /* capture.c */,
 				619CAA5C1A06C48600EB852B /* capture.h */,
+				610735DD1A349F9200F1913D /* definitions.h */,
 			);
 			path = koklama;
 			sourceTree = "<group>";

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <pcap.h>
+#include "definitions.h"
 
 void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *pkt);
 
