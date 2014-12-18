@@ -104,7 +104,7 @@ pcap_t *openLiveDeviceAndApplyFilter(char *dev, bool monitormode, char *filter,c
                 return handle;
         }
 
-        pcap_set_snaplen(handle, BUFSIZ);
+        pcap_set_snaplen(handle, 3*BUFSIZ);
         pcap_set_promisc(handle, true);
         pcap_set_timeout(handle, 1000);
 

@@ -12,6 +12,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <pcap.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <net/ethernet.h>
 #include "definitions.h"
 
 void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *pkt);

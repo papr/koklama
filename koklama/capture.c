@@ -17,33 +17,36 @@ void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char
         rtphead = (struct ieee80211_radiotap_header*)pkt;
 
         // 802.11 header
-        const u_char *frmctrlcharptr = pkt + rtphead->it_len;
-	unsigned int *frmctrlptr = (unsigned int *)frmctrlcharptr;
-        unsigned int bitfick = ((*frmctrlptr >> 12) % 4);
+        const u_char *frmref = pkt + rtphead->it_len;
 
-        if (bitfick == 2) {
-                u_char bits[16];
-                memset(bits, 0, 16*sizeof(u_char));
-                const u_char *addr1charptr = pkt + rtphead->it_len;
-                const u_char *ptr = addr1charptr;
-                for (int j=0; j<2; j++) {
-                        ptr = ptr + j;
-                        int i;
-                        for(; *ptr != 0; ++ptr)
-                        {
-                                /* perform bitwise AND for every bit of the character */
-                                for(i = 7; i >= 0; --i)
-                                        bits[j*8+(7-i)] = (*ptr & 1 << i) ? '1' : '0';
-                        }
+        const uint16_t *frmctrl = (const uint16_t *)frmref;
+
+        uint16_t is_encrypt_flag = 2;
+        uint16_t type_subtype_flag = 15360;
+        uint16_t data_type_flag = 8192;
+
+        // check if packet is encrypted
+        if ((*frmctrl & is_encrypt_flag) != is_encrypt_flag)
+        {
+                // check if it is a data packet
+                if (( (*frmctrl & type_subtype_flag) ^ data_type_flag) == 0)
+                {
+                        /* ethernet addesses
+                         const struct ether_addr *addr1 = (const struct ether_addr *)(frmref + 4);
+                         const struct ether_addr *addr2 = (const struct ether_addr *)(frmref + 10);
+                         const struct ether_addr *addr3 = (const struct ether_addr *)(frmctrl + 16);
+                         fprintf(stdout, "%s\t\t%s\t\t%s\n",ether_ntoa(addr1),ether_ntoa(addr2),ether_ntoa(addr3));
+                         //*/
+
+                        const struct ip *ipref = (const struct ip *)(frmref + 40);
+                        /*
+                        char src[64], dst[64];
+                        inet_ntop(AF_INET,&ipref->ip_src,src,sizeof(src));
+                        inet_ntop(AF_INET,&ipref->ip_dst,dst,sizeof(dst));
+                        fprintf(stdout, "%s\t\t%s\n",src,dst);
+                         //*/
+
+
                 }
-                fprintf(stdout, "%s\n",bits);
-                /*
-                char macStr[18];
-
-                snprintf(macStr, sizeof(macStr), "%02x:%02x:%02x:%02x:%02x:%02x",
-                         addr1charptr[0], addr1charptr[1], addr1charptr[2], addr1charptr[3], addr1charptr[4], addr1charptr[5]);
-
-                fprintf(stdout,"%s\n",macStr);
-                 */
         }
 }
