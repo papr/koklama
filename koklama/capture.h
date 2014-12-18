@@ -10,6 +10,7 @@
 #define __koklama__capture__
 
 #include <stdio.h>
+#include <string.h>
 #include <pcap.h>
 #include "definitions.h"
 

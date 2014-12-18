@@ -11,7 +11,6 @@
 void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *pkt) {
         // pcap_t *handle = (pcap_t *)arg;
         // int type = pcap_datalink(handle);, pcap_datalink_val_to_name(type)
-        // fprintf(stdout,"%d\n",pkthdr->caplen);
 
         // radio tap header + radio tap data
         const struct ieee80211_radiotap_header *rtphead;
@@ -20,17 +19,31 @@ void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char
         // 802.11 header
         const u_char *frmctrlcharptr = pkt + rtphead->it_len;
 	unsigned int *frmctrlptr = (unsigned int *)frmctrlcharptr;
-        unsigned int frmctrl = *frmctrlptr; // frame control length 30bits
-        frmctrl = frmctrl >> 12;
-        frmctrl = frmctrl % 4;
+        unsigned int bitfick = ((*frmctrlptr >> 12) % 4);
 
-        if (frmctrl == 2) {
-                const u_char *addr1charptr = pkt + rtphead->it_len + 4;
-		char macStr[18];
+        if (bitfick == 2) {
+                u_char bits[16];
+                memset(bits, 0, 16*sizeof(u_char));
+                const u_char *addr1charptr = pkt + rtphead->it_len;
+                const u_char *ptr = addr1charptr;
+                for (int j=0; j<2; j++) {
+                        ptr = ptr + j;
+                        int i;
+                        for(; *ptr != 0; ++ptr)
+                        {
+                                /* perform bitwise AND for every bit of the character */
+                                for(i = 7; i >= 0; --i)
+                                        bits[j*8+(7-i)] = (*ptr & 1 << i) ? '1' : '0';
+                        }
+                }
+                fprintf(stdout, "%s\n",bits);
+                /*
+                char macStr[18];
 
                 snprintf(macStr, sizeof(macStr), "%02x:%02x:%02x:%02x:%02x:%02x",
                          addr1charptr[0], addr1charptr[1], addr1charptr[2], addr1charptr[3], addr1charptr[4], addr1charptr[5]);
 
                 fprintf(stdout,"%s\n",macStr);
+                 */
         }
 }
