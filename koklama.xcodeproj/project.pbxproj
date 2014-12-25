@@ -10,6 +10,7 @@
 		617242131A0283C3009B9BE8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 617242121A0283C3009B9BE8 /* README.md */; };
 		619CAA5D1A06C48600EB852B /* capture.c in Sources */ = {isa = PBXBuildFile; fileRef = 619CAA5B1A06C48600EB852B /* capture.c */; };
 		61B969A31A067A6D00B6B73E /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 61B969A11A067A6D00B6B73E /* utils.c */; };
+		61BCC3A21A471AF700490822 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BCC3A11A471AF700490822 /* libz.1.2.5.dylib */; };
 		766345B41A02654A00395979 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 766345B31A02654A00395979 /* main.c */; };
 		766345BB1A0274B000395979 /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 766345BA1A0274B000395979 /* libpcap.dylib */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		619CAA5C1A06C48600EB852B /* capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = capture.h; sourceTree = "<group>"; };
 		61B969A11A067A6D00B6B73E /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
 		61B969A21A067A6D00B6B73E /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		61BCC3A11A471AF700490822 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		766345B01A02654A00395979 /* koklama */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = koklama; sourceTree = BUILT_PRODUCTS_DIR; };
 		766345B31A02654A00395979 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		766345BA1A0274B000395979 /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61BCC3A21A471AF700490822 /* libz.1.2.5.dylib in Frameworks */,
 				766345BB1A0274B000395979 /* libpcap.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +67,7 @@
 		766345A71A02654A00395979 = {
 			isa = PBXGroup;
 			children = (
+				61BCC3A11A471AF700490822 /* libz.1.2.5.dylib */,
 				766345BA1A0274B000395979 /* libpcap.dylib */,
 				766345B21A02654A00395979 /* koklama */,
 				766345B11A02654A00395979 /* Products */,
