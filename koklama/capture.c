@@ -31,15 +31,6 @@ void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char
                 // check if it is a data packet
                 if (( (*frmctrl & type_subtype_flag) ^ data_type_flag) == 0)
                 {
-                        /* ethernet addesses
-                        const struct ether_addr *addr1 = (const struct ether_addr *)(frmref + 4);
-                        const struct ether_addr *addr2 = (const struct ether_addr *)(frmref + 10);
-                        const struct ether_addr *addr3 = (const struct ether_addr *)(frmref + 13);
-                        fprintf(stdout, "%s\t\t",ether_ntoa(addr1));
-                        fprintf(stdout, "%s\t\t",ether_ntoa(addr2));
-                        fprintf(stdout, "%s\n",ether_ntoa(addr3));
-                         //*/
-
                         const struct ip *ipref;
 
                         for (int shift = 34; shift <= 40; shift += 2) {
@@ -47,12 +38,20 @@ void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char
                                 u_int ver = ipref->ip_v;
                                 if (ver == 4) {
 
-
                                         u_char prot = ipref->ip_p;
                                         u_int8_t protnum = prot;
 
-                                        if (protnum == 6) {
+                                        if (protnum == 17) {
 
+                                                //* ethernet addesses
+                                                const struct ether_addr *addr1 = (const struct ether_addr *)(frmref + 4);
+                                                const struct ether_addr *addr2 = (const struct ether_addr *)(frmref + 10);
+                                                const struct ether_addr *addr3 = (const struct ether_addr *)(frmref + 13);
+                                                fprintf(stdout, "%s\t\t",ether_ntoa(addr1));
+                                                fprintf(stdout, "%s\t\t",ether_ntoa(addr2));
+                                                fprintf(stdout, "%s\t\t",ether_ntoa(addr3));
+                                                //*/
+                                                
                                                 //*
                                                 char src[64], dst[64];
                                                 inet_ntop(AF_INET,&ipref->ip_src,src,sizeof(src));
@@ -69,31 +68,18 @@ void capture_loop_cb(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char
                                                 
                                                 //*/
 
-                                                const struct tcphdr *tcpref = (const struct tcphdr *)(frmref + shift + (4*ipref->ip_hl));
-                                                fprintf(stdout, "%hu\t\t%hu\n",tcpref->th_sport, tcpref->th_dport);
+                                                const struct udphdr *udpref = (const struct udphdr *)(frmref + shift + (4*ipref->ip_hl));
+                                                fprintf(stdout, "%hu\t\t%hu\n",ntohs(udpref->uh_sport), ntohs(udpref->uh_dport));
 
 						//*
-                                                const u_char *data = frmref + shift + (4*ipref->ip_hl) + (4*tcpref->th_off);
-                                                u_int32_t datalen = ipref->ip_len - ((4*ipref->ip_hl) + (4*tcpref->th_off));
+                                                const u_char *data = frmref + shift + (4*ipref->ip_hl) + sizeof(udpref);
+                                                u_short datalen = ntohs(udpref->uh_ulen) - sizeof(udpref);
+                                                fprintf(stdout, "%hu\t%lu\t%hu\n",ntohs(udpref->uh_ulen),sizeof(udpref),datalen);
                                                 u_char datastr[datalen];
                                                 memcpy(datastr, data, sizeof(datastr));
                                                 fprintf(stdout, "%s\n--------------------------------------\n",datastr);
                                                  //*/
 
-
-                                                struct kok_packet packet;
-                                                memset(&packet, 0, sizeof(packet));
-                                                packet.pcaphdr = pkthdr;
-                                                packet.original = pkt;
-                                                packet.wifihdr = frmref;
-                                                packet.iphdr = ipref;
-                                                packet.tcphdr = tcpref;
-                                                packet.data = data;
-                                                packet.datalen = datalen;
-
-                                                // queue packet
-
-                                                
                                         }
 
                                         break;
